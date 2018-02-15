@@ -1,4 +1,4 @@
 class Categorization < ApplicationRecord
-  has_many :boardgame_id
-  has_many :category_id
+  belongs_to :boardgame
+  belongs_to :category
 end

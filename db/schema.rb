@@ -20,22 +20,21 @@ ActiveRecord::Schema.define(version: 20180213224419) do
     t.string "name", null: false
     t.string "description", null: false
     t.string "publisher", null: false
-    t.decimal "rating_average"
+    t.decimal "average_rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_boardgames_on_user_id"
   end
 
-  create_table "boardgames_categories", id: false, force: :cascade do |t|
-    t.integer "boardgame_id", null: false
-    t.integer "category_id", null: false
+  create_table "categories", force: :cascade do |t|
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "categories", force: :cascade do |t|
-    t.string "category", null: false
-    t.string "boardgame_id", null: false
+  create_table "categorizations", id: false, force: :cascade do |t|
+    t.integer "boardgame_id", null: false
+    t.integer "category_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
