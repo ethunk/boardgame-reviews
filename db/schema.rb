@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20180213224419) do
   enable_extension "plpgsql"
 
   create_table "boardgames", force: :cascade do |t|
-    t.bigint "user_id"
+    t.bigint "user_id", null: false
     t.string "name", null: false
     t.string "description", null: false
     t.string "publisher", null: false
@@ -41,12 +41,12 @@ ActiveRecord::Schema.define(version: 20180213224419) do
 
   create_table "reviews", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.bigint "bathroom_id", null: false
+    t.bigint "boardgame_id", null: false
     t.integer "rating", null: false
     t.text "body", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["bathroom_id"], name: "index_reviews_on_bathroom_id"
+    t.index ["boardgame_id"], name: "index_reviews_on_boardgame_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 

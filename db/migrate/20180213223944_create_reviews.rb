@@ -2,7 +2,7 @@ class CreateReviews < ActiveRecord::Migration[5.1]
   def change
     create_table :reviews do |t|
       t.belongs_to :user, null: false
-      t.belongs_to :bathroom, null: false
+      t.belongs_to :boardgame, null: false
       t.integer :rating, null: false
       t.text :body, null: false
 

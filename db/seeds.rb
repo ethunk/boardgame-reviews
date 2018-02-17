@@ -6,4 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-boardgame_one = 
+if Rails.env.development? || Rails.env.production?
+    UserSeeder.seed!
+    BoardgameSeeder.seed!
+    CategorySeeder.seed!
+    CategorizationSeeder.seed!
+end
