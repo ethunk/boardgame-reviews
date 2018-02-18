@@ -30,7 +30,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
-
+  gem 'fog-aws'
+  gem 'kaminari'
 end
 
 group :development do
@@ -50,6 +51,7 @@ gem 'launchy', group: [:development, :test]
 gem 'factory_bot_rails', group: [:development, :test]
 gem 'valid_attribute', group: [:development, :test]
 gem 'shoulda-matchers', group: [:development, :test], require: false
+gem 'dotenv-rails', groups: [:development, :test]
 gem 'devise'
 gem 'foundation-rails', '~> 5.0'
 gem 'webpacker', '~> 3.2'

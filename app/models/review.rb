@@ -1,6 +1,6 @@
 class Review < ApplicationRecord
   belongs_to :user
-  belongs_to :bathroom
+  belongs_to :boardgame
   has_many :votes
 
   validates :body, presence: true

@@ -1,2 +1,0 @@
-class BoardGameController < ApplicationController
-end

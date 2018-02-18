@@ -11,4 +11,5 @@ if Rails.env.development? || Rails.env.production?
     BoardgameSeeder.seed!
     CategorySeeder.seed!
     CategorizationSeeder.seed!
+    ReviewSeeder.seed!
 end

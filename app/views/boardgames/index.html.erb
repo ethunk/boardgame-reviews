@@ -1,0 +1,41 @@
+
+
+<h1 class="title small-4 small-offset-4">
+  List of Boardgames
+</h1>
+
+<%- if current_user -%>
+  <div class="small-4 small-offset-4">
+    <h5><%= link_to "Submit New Boardgame", new_boardgame_path %></h5>
+  </div>
+<% end %>
+
+<% @boardgames.each do |boardgame| %>
+  <table class="boardgame-list small-4 small-offset-4">
+    <tr>
+      <th id='boadgame_title' colspan=4> <%=boardgame.name%></th>
+    </tr>
+    <tr>
+      <th>Rating</th>
+      <th>Publisher</th>
+      <th>Description</th>
+      <th>Category</th>
+    </tr>
+    <tr>
+      <td><%= boardgame.avg_rating %></td>
+      <td><%= link_to boardgame.publisher, boardgame_path(boardgame) %></td>
+      <td><%= boardgame.description %></td>
+      <td>
+      <% if boardgame.categories %>
+        <% boardgame.categories.each do |category| %>
+          <div><%= category.name %></div>
+          <%end%>
+        </td>
+        <% else %>
+        <td> N/A </td>
+      <%end%>
+    </tr>
+  </table>
+<%end%>
+
+<%= paginate @boardgames %>
