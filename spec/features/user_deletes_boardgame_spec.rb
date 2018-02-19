@@ -1,10 +1,10 @@
 require 'rails_helper'
 
 # Acceptance Criteria
-# [ ] There is a delete button on the show page
-# [ ] I can click the button to delete a boardgame
-# [ ] I am notified when I delete a boardgame
-# [ ] I can only see the delete button if I own the boardgame
+# [x] There is a delete button on the show page
+# [x] I can click the button to delete a boardgame
+# [x] I am notified when I delete a boardgame
+# [x] I can only see the delete button if I own the boardgame
 
 feature "As an authenticated user
 I want to delete a boardgame
