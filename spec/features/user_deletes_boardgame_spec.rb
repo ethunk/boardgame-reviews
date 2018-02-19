@@ -13,9 +13,9 @@ and all reviews for that boardgame" do
 
     user = FactoryBot.create(:user)
     boardgame = FactoryBot.create(:boardgame, user: user)
-    review = FactoryBot.create(:user, user, boardgame)
+    review = FactoryBot.create(:review, user: user, boardgame: boardgame)
 
-    visit boargame_path(boardgame)
+    visit boardgame_path(boardgame)
 
     visit new_user_session_path
     fill_in 'Email', with: user.email
@@ -27,9 +27,8 @@ and all reviews for that boardgame" do
     click_button 'Delete this Boardgame'
     # Where should I be directed to?
     expect(page).to have_content("Boardgame Deleted")
-
-    #expect to have the review deleted
-    expect(review).to be nil
+    expect(Boardgame.all.empty?).to be true
+    expect(Review.all.empty?).to be true
   end
 
   scenario 'User who does not own the boardgame, cannot see the delete button' do
