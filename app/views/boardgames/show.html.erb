@@ -48,25 +48,5 @@
     </div>
   </div>
 
-    <% @reviews.each do |review| %>
-    <div class="container-total-review">
-      <div id="vote-div">
-        <%= link_to image_tag("Upvote_Edited_Final.png"), upvote_review_votes_path(review), class: 'upvote' %>
-          <div class= 'vote-total'>
-            <%= @vote_total[review.id] %>
-          </div>
-        <%= link_to image_tag("Downvote_Edited_Final.png"), downvote_review_votes_path(review), class: 'downvote' %>
-      </div>
-      <div class="review-container">
-        <p><strong>Review:</strong> <%= review.body %></p>
-        <p><strong>Boardgame Rating:</strong> <%= review.rating %></p>
-        <p><strong>Time of Review:</strong> <%= review.created_at %></p>
-        <% if review.user == current_user %>
-          <%= button_to "Delete this Review", boardgame_review_path(@boardgame, review.id), method: :delete, class: "button" %>
-        <% end %>
-      </div>
-  </div>
-  <% end %>
-
   <%= paginate @reviews %>
 </div>

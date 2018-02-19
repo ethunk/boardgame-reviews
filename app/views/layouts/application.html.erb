@@ -4,18 +4,19 @@
   <title>Board Game Reviews</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <%= stylesheet_link_tag 'application', media: 'all' %>
-
-    <%= javascript_include_tag "vendor/modernizr" %>
-
+  <%= javascript_include_tag "vendor/modernizr" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
   <nav class="top-bar">
     <ul class="title-area">
-      <li class="name">
-        <h1><a href="/">Board Game Reviews</a></h1>
-      </li>
+      <a href="/">
+        <li class="name">
+          <img <%= link_to image_tag('icon.png') %> ></a>
+          <a href='/'><h1 class='inline'>Board Game Reviews</h1></a>
+          </img>
+        </li>
     </ul>
 
     <section class="top-bar-section">
