@@ -1,9 +1,9 @@
 require "rails_helper"
 
 # Acceptance Criteria
-# [ ] I want to be on the Boardgame show/details page and see a list of reviews
-# [ ] I want to write a review for a specific boardgame
-# [ ] I want to be able to edit any reviews I submit
+# [x] I want to be on the Boardgame show/details page and see a list of reviews
+# [x] I want to write a review for a specific boardgame
+# [x] I want to be able to edit any reviews I submit
 
 feature "As a user
 I want to edit a review
@@ -17,15 +17,6 @@ So that I can change any grammatical errors I make" do
       fill_in 'Email', with: user.email
       fill_in 'Password', with: user.password
       click_button "Log in"
-  end
-
-  def create_review(boardgame)
-    click_link boardgame.name
-    expect(page).to have_button('Submit Review')
-    click_button('Submit Review')
-    fill_in "Body", with: "This game is AEsome!!!"
-    select("2", from: "review_rating").select_option
-    click_button "Submit"
   end
 
   scenario "user edits a review on a page" do
@@ -42,7 +33,7 @@ So that I can change any grammatical errors I make" do
     expect(page).to have_content('This game is Awesome!!!!')
   end
 
-  scenario "a user cannot edit a review they did't write" do
+  scenario "a user cannot edit a review they didn't write" do
     user_one = FactoryBot.create(:user)
     user_two = FactoryBot.create(:user)
     boardgame = FactoryBot.create(:boardgame, user: user_one)

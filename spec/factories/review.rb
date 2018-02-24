@@ -3,7 +3,7 @@ FactoryBot.define do
     user_id '1'
     boardgame_id '1'
     rating '4'
-    body 'this ia the body of a review'
+    body 'this is the body of a review'
 
     user
     boardgame

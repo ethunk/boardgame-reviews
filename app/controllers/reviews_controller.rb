@@ -42,6 +42,12 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def destroy
+    @boardgame = Boardgame.find(params[:boardgame_id]).destroy
+    flash[:notice] = "Boardgame Deleted"
+    redirect_to boardgames_path
+  end
+
 
 end
 
