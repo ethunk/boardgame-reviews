@@ -3,6 +3,13 @@ class ReviewsController < ApplicationController
 
   def new
     @review = Review.new
+    @boardgame = Boardgame.find(params[:boardgame_id])
+    @rating = Review::RATINGS
+  end
+
+  def edit
+    @review = Review.find(params[:id])
+    @boardgame = @review.boardgame
     @rating = Review::RATINGS
   end
 
@@ -21,6 +28,20 @@ class ReviewsController < ApplicationController
       redirect_to new_boardgame_review_path(@boardgame)
     end
   end
+
+  def update
+    @review = Review.find(params[:id])
+
+    if @review.update(review_params)
+      flash[:notice] = 'Review Edited'
+      redirect_to boardgame_path(@review.boardgame)
+    else
+      flash.now[:alert] = @review.errors.full_messages.join("\n")
+      @rating = Review::RATINGS
+      render :edit
+    end
+  end
+
 
 end
 

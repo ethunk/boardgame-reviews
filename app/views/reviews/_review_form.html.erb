@@ -1,4 +1,4 @@
-<%= form_for [@boardgame, @review], url: boardgame_reviews_path do |f| %>
+<%= form_for [@boardgame, @review] do |f| %>
   <!-- <table> -->
     <th>
       <%= f.label :body %>
@@ -6,7 +6,11 @@
     </th>
     <th>
       <%= f.label :rating, "Rating (scale of 1 - 5)" %>
-      <%= f.select(:rating, options_for_select(@rating)) %>
+      <% if @review.rating.nil? %>
+        <%= f.select(:rating, options_for_select(@rating)) %>
+      <% else %>
+      <%= f.select(:rating, options_for_select(@rating, selected: @rating[@review.rating])) %>
+      <% end %>
     </th>
   <%= f.submit "Submit" %>
 <!-- </table> -->

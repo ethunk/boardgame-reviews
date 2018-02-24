@@ -23,20 +23,18 @@ So that I can change any grammatical errors I make" do
     click_link boardgame.name
     expect(page).to have_button('Submit Review')
     click_button('Submit Review')
-
     fill_in "Body", with: "This game is AEsome!!!"
     select("2", from: "review_rating").select_option
     click_button "Submit"
   end
 
   scenario "user edits a review on a page" do
-
-    boardgame = FactoryBot.create(:boardgame)
-    review = FactoryBot.create(:review, boardgame: boardgame)
-    login
-    create_review(boardgame)
+    user = FactoryBot.create(:user)
+    boardgame = FactoryBot.create(:boardgame, user: user)
+    review = FactoryBot.create(:review, boardgame: boardgame, user:user)
+    login(user)
+    click_link boardgame.name
     expect(page).to have_button('Edit')
-    binding.pry
     click_button ' Edit '
     fill_in 'Body', with: "This game is Awesome!!!!"
     click_button 'Submit'
@@ -47,13 +45,13 @@ So that I can change any grammatical errors I make" do
   scenario "a user cannot edit a review they did't write" do
     user_one = FactoryBot.create(:user)
     user_two = FactoryBot.create(:user)
-    boardgame = FactoryBot.create(:boardgame)
+    boardgame = FactoryBot.create(:boardgame, user: user_one)
     review = FactoryBot.create(:review, boardgame: boardgame, user: user_one)
 
     login(user_two)
 
     click_link boardgame.name
-    expect(page).to not_have_button('Edit')
+    expect(page).to_not have_content('Edit')
 
   end
 end

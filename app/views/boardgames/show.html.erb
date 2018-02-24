@@ -19,7 +19,7 @@
         <h2>Reviews</h2>
 <% if current_user %>
   <div id="back-to-list">
-    <%= button_to "Submit Review", new_boardgame_review_path(@boardgame.id), class: 'button', method: :get %>
+    <%= button_to "Submit Review", new_boardgame_review_path(@boardgame), class: 'button', method: :get %>
   </div>
 <% end %>
   <%= render 'show_reviews' %>
