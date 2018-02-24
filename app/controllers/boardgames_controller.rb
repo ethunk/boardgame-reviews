@@ -1,5 +1,5 @@
 class BoardgamesController < ApplicationController
-  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @boardgames = Boardgame.all.order('created_at DESC').page(params[:page])
@@ -13,6 +13,7 @@ class BoardgamesController < ApplicationController
     @boardgame = Boardgame.find(params[:id])
     @reviews = @boardgame.reviews.order(created_at: :desc).page(params[:page])
     @review = Review.new
+    @rating = Review::RATINGS
   end
 
   def create

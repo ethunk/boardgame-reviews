@@ -12,7 +12,7 @@ So that others can review it" do
 
   scenario 'User fills in boardgame form and submits' do
     visit '/boardgames'
-    expect(page.html.include?('Submit Boardgame')).to be false
+    expect(page.html.include?('Submit New Boardgame')).to be false
 
     user = FactoryBot.create(:user)
     visit new_user_session_path
@@ -26,7 +26,7 @@ So that others can review it" do
     fill_in :boardgame_description, with: "Play to make unfair market conditions"
     fill_in :boardgame_publisher, with: "Warner Bros."
 
-    click_button "Submit New Boardgame"
+    click_button "Submit"
 
     expect(page).to have_content("Monopoly")
     expect(page).to have_content("Boardgame Created!")
@@ -41,7 +41,7 @@ So that others can review it" do
 
     visit boardgames_path
     click_link 'Submit New Boardgame'
-    click_button "Submit New Boardgame"
+    click_button 'Submit'
     expect(page).to have_content("Publisher can't be blank")
     expect(page).to have_content("Name can't be blank")
     expect(page).to have_content("Description can't be blank")

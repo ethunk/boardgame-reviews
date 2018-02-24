@@ -1,0 +1,29 @@
+<div class='container clearfix text-center'>
+  <% boardgames.each do |boardgame| %>
+    <table class="boardgame-list small-4 small-offset-4">
+      <tr>
+        <th colspan=4><%= link_to("#{boardgame.name}", boardgame_path(boardgame), :id => "boardgame_title") %></th>
+      </tr>
+      <tr>
+        <th>Rating</th>
+        <th>Publisher</th>
+        <th>Description</th>
+        <th>Category</th>
+      </tr>
+      <tr>
+        <td><%= boardgame.avg_rating %></td>
+        <td><%= link_to boardgame.publisher, boardgame_path(boardgame) %></td>
+        <td><%= boardgame.description %></td>
+        <td>
+        <% if boardgame.categories %>
+          <% boardgame.categories.each do |category| %>
+            <div><%= category.name %></div>
+            <%end%>
+          </td>
+          <% else %>
+          <td> N/A </td>
+        <%end%>
+      </tr>
+    </table>
+  <%end%>
+  </div>

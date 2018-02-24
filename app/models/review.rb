@@ -10,3 +10,12 @@ class Review < ApplicationRecord
     less_than_or_equal_to: 5
   }
 end
+
+RATINGS = [
+  ['Choose a Rating',0],
+  ['1-Not Fun',1],
+  ["2",2],
+  ['3-Avg',3],
+  ['4',4],
+  ['5-Best',5]
+  ]
