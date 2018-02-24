@@ -1,15 +1,15 @@
 require "rails_helper"
 
 # Acceptance Criteria
-# [ ] I want to be on the Boardgame details page and see form to write a review
+# [ ] I want to be on the Boardgame show/details page and see a list of reviews
 # [ ] I want to write a review for a specific boardgame
-# [ ] I want to see it on the boardgame details page
+# [ ] I want to be able to edit any reviews I submit
 
 feature "As a user
-I want to write a review
-So that I can inform others of the quality of the boardgame" do
+I want to edit a review
+So that I can change any grammatical errors i make" do
 
-  scenario "user writes a review and sees on page" do
+  xscenario "user writes a review and sees on page" do
     user = FactoryBot.create(:user)
     boardgame = FactoryBot.create(:boardgame)
     review = FactoryBot.create(:review, boardgame: boardgame)
@@ -31,7 +31,7 @@ So that I can inform others of the quality of the boardgame" do
     expect(page).to have_content(2)
   end
 
-  scenario "user writes an invalid review and sees error on page" do
+  xscenario "user writes an invalid review and sees error on page" do
     user = FactoryBot.create(:user)
     boardgame = FactoryBot.create(:boardgame)
     review = FactoryBot.create(:review, boardgame: boardgame)

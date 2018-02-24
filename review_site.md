@@ -22,7 +22,7 @@ Taking your time and pacing your work, this challenge may span a couple weeks - 
 
 At a minimum, you must supply the following functionality:
 
-* The ability to add, delete, edit and delete an item
+* The ability to add, delete, and edit an item
 * The ability to rate (score on a scale) items and leave an optional review
 * The ability to sign in and sign up, using Devise for authentication
 
