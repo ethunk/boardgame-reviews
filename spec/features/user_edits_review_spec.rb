@@ -7,47 +7,53 @@ require "rails_helper"
 
 feature "As a user
 I want to edit a review
-So that I can change any grammatical errors i make" do
+So that I can change any grammatical errors I make" do
 
-  xscenario "user writes a review and sees on page" do
-    user = FactoryBot.create(:user)
-    boardgame = FactoryBot.create(:boardgame)
-    review = FactoryBot.create(:review, boardgame: boardgame)
-
-    visit new_user_session_path
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: user.password
-    click_button "Log in"
-
-    click_link boardgame.name
-    expect(page).to have_button('Submit Review')
-    click_button('Submit Review')
-
-    fill_in "Body", with: "Not very clean"
-    select("2", from: "review_rating").select_option
-    click_button "Submit"
-
-    expect(page).to have_content("Not very clean")
-    expect(page).to have_content(2)
+  def login(user=nil)
+    if user == nil
+      user = FactoryBot.create(:user)
+    end
+      visit new_user_session_path
+      fill_in 'Email', with: user.email
+      fill_in 'Password', with: user.password
+      click_button "Log in"
   end
 
-  xscenario "user writes an invalid review and sees error on page" do
-    user = FactoryBot.create(:user)
-    boardgame = FactoryBot.create(:boardgame)
-    review = FactoryBot.create(:review, boardgame: boardgame)
-
-    visit new_user_session_path
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: user.password
-    click_button "Log in"
-
+  def create_review(boardgame)
     click_link boardgame.name
     expect(page).to have_button('Submit Review')
     click_button('Submit Review')
 
+    fill_in "Body", with: "This game is AEsome!!!"
+    select("2", from: "review_rating").select_option
     click_button "Submit"
+  end
 
-    expect(page).to have_content("Rating must be greater than or equal to 1")
+  scenario "user edits a review on a page" do
+
+    boardgame = FactoryBot.create(:boardgame)
+    review = FactoryBot.create(:review, boardgame: boardgame)
+    login
+    create_review(boardgame)
+    expect(page).to have_button('Edit')
+    binding.pry
+    click_button ' Edit '
+    fill_in 'Body', with: "This game is Awesome!!!!"
+    click_button 'Submit'
+
+    expect(page).to have_content('This game is Awesome!!!!')
+  end
+
+  scenario "a user cannot edit a review they did't write" do
+    user_one = FactoryBot.create(:user)
+    user_two = FactoryBot.create(:user)
+    boardgame = FactoryBot.create(:boardgame)
+    review = FactoryBot.create(:review, boardgame: boardgame, user: user_one)
+
+    login(user_two)
+
+    click_link boardgame.name
+    expect(page).to not_have_button('Edit')
 
   end
 end

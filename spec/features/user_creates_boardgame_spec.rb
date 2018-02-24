@@ -1,10 +1,10 @@
 require 'rails_helper'
 
 # Acceptance Criteria
-# [ x] There is a new page
-# [ x] I can submit a form to add a boardgame
-# [ x] I am notified when I create a boardgame
-# [ x] I am notified when form is filled out incorrectly with error messages
+# [x] There is a new page
+# [x] I can submit a form to add a boardgame
+# [x] I am notified when I create a boardgame
+# [x] I am notified when form is filled out incorrectly with error messages
 
 feature "As an authenticated user
 I want to add a boardgame
