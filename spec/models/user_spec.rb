@@ -10,13 +10,13 @@ RSpec.describe User, type: :model do
   describe '.admin?' do
     context "user is admin" do
       it 'should return true' do
-        admin = FactoryGirl.create(:user, role: 'admin')
+        admin = FactoryBot.create(:user, role: 'admin')
         expect(admin.admin?).to eq true
       end
     end
     context "user is admin" do
       it 'should return false' do
-        user = FactoryGirl.create(:user)
+        user = FactoryBot.create(:user)
         expect(user.admin?).to eq false
       end
     end
