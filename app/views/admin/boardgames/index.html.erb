@@ -1,0 +1,14 @@
+
+
+  <h1 class="title small-4 small-offset-4">
+    List of Boardgames
+  </h1>
+
+
+    <div class="small-4 small-offset-4">
+      <h5 class='button'><%= link_to "Submit New Boardgame", new_boardgame_path, :id => 'submit_link' %></h5>
+    </div>
+
+  <%= render partial: 'boardgame_info', :locals => { :boardgames => @boardgames } %>
+
+  <%= paginate @boardgames %>

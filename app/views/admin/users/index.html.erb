@@ -1,0 +1,16 @@
+<h1>Admin</h1>
+
+<h2>Registered Users </h2>
+  <table>
+    <th>Email</th>
+    <th>Date Created</th>
+    <th>Last Sign-In </th>
+    <th>Action</th>
+  <% @users.each do |user| %>
+  <tr>
+    <td><%= user.email %> </td>
+    <td> <%= user.created_at %> </td>
+    <td> <%= user.last_sign_in_at %> </td>
+    <td> <%= button_to "Delete", admin_user_path(user), method: :delete, class: 'button', id: user.id %> </td>
+  </tr>
+  <%end%>

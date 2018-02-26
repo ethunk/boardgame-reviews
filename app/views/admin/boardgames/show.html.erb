@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="container clearfix text-center">
+    <div id="back-to-list">
+      <%= button_to "Back to All Boardgames", boardgames_path, class: 'button', method: :get %>
+    </div>
+
+    <h1>
+      <%= @boardgame.name %>
+    </h1>
+
+    <%= render partial: 'boardgame_info', :locals => { :boardgames => [@boardgame] } %>
+
+    <ul class="button-group text-center">
+      <li><%= button_to "Delete this Boardgame", boardgame_path(@boardgame), method: :delete, class: 'button' %></li>
+      <li><%= button_to "Edit this Boardgame", edit_boardgame_path(@boardgame), class: 'button', method: :get %></li>
+    </ul>
+    <h2>Reviews</h2>
+    <div id="back-to-list">
+      <%= button_to "Submit Review", new_boardgame_review_path(@boardgame), class: 'button', method: :get %>
+    </div>
+    <%= render 'show_reviews' %>
+    </div>
+  </div>
+</div>
+
+<%= paginate @reviews %>
