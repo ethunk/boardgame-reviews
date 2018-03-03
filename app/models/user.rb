@@ -6,6 +6,12 @@ class User < ApplicationRecord
 
   has_many :boardgames
   has_many :votes
+  has_many :reviews
+
+  after_destroy { |record|
+    # Boardgame.destroy(record.boardgames.pluck(:id))
+    Review.destroy(record.reviews.pluck(:id))
+  }
 
   def admin?
     role == 'admin'

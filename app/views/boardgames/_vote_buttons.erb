@@ -1,0 +1,12 @@
+<% if current_user %>
+  <% @vote_total[review.id] = 0 if @vote_total[review.id].nil? %>
+  <td class='parent'>
+    <div class='centered'> <%= link_to '', upvote_review_votes_path(review), class: 'upvote', method: :post %></div>
+    <div class='vote-total-value centered'> <%= @vote_total[review.id] %> </div>
+    <div class='centered'><%= link_to '', downvote_review_votes_path(review), class: 'downvote', method: :post %></div>
+  </td>
+<% else %>
+  <td class='parent'>
+    <div class='vote-total-value'> <%= @vote_total[review.id] %> </div>
+  </td>
+<% end %>

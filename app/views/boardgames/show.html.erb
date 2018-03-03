@@ -10,11 +10,13 @@
 
     <%= render partial: 'boardgame_info', :locals => { :boardgames => [@boardgame] } %>
 
-    <% if @boardgame.user == current_user || current_user.admin? %>
-        <ul class="button-group text-center">
-          <li><%= button_to "Delete this Boardgame", boardgame_path(@boardgame), method: :delete, class: 'button' %></li>
-          <li><%= button_to "Edit this Boardgame", edit_boardgame_path(@boardgame), class: 'button', method: :get %></li>
-        </ul>
+    <% if current_user %>
+      <% if @boardgame.user == current_user || current_user.admin? %>
+          <ul class="button-group text-center">
+            <li><%= button_to "Delete this Boardgame", boardgame_path(@boardgame), method: :delete, class: 'button' %></li>
+            <li><%= button_to "Edit this Boardgame", edit_boardgame_path(@boardgame), class: 'button', method: :get %></li>
+          </ul>
+      <% end %>
     <% end %>
         <h2>Reviews</h2>
 <% if current_user %>

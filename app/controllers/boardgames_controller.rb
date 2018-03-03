@@ -14,6 +14,7 @@ class BoardgamesController < ApplicationController
     @reviews = @boardgame.reviews.order(created_at: :desc).page(params[:page])
     @review = Review.new
     @rating = Review::RATINGS
+    @vote_total = Vote.group(:review_id).sum(:vote)
   end
 
   def create

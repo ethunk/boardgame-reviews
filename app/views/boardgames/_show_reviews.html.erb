@@ -1,33 +1,31 @@
 <% @reviews.each do |review| %>
     <div class="container-total-review">
-      <div id="vote-div">
-        <%= link_to image_tag("Upvote_Edited_Final.png"), upvote_review_votes_path(review), class: 'upvote' %>
-          <div class= 'vote-total'>
-
-          </div>
-        <%= link_to image_tag("Downvote_Edited_Final.png"), downvote_review_votes_path(review), class: 'downvote' %>
-      </div>
       <div class="review-container">
         <table>
           <tr>
             <th>Rating</th>
             <th>Review</th>
+            <th>+/-</th>
             <% if review.user == current_user %>
-            <th>Actions</th>
+              <th>Actions</th>
             <% end %>
           </tr>
-          <td>
-            <%= review.rating %>
-          </td>
-          <td>
-            <%= review.body %>
-          </td>
-        <% if review.user == current_user %>
-          <td>
-            <%= button_to "Delete", boardgame_review_path(@boardgame, review.id), method: :delete, class: "button" %>
-            <%= button_to "  Edit  ", edit_boardgame_review_path(@boardgame, review.id), method: :get, class: "button" %>
-          </td>
+          <td><%= review.rating %></td>
+          <td><%= review.body %></td>
+
+          <%= render partial: 'vote_buttons', locals: {current_user: current_user, review: review, vote_total: @vote_total  } %>
+          <% if current_user %>
+            <% if review.user == current_user || current_user.admin? %>
+              <td>
+                <div id="vote-div">
+                  <%= button_to "Delete", boardgame_review_path(@boardgame, review.id), method: :delete, class: "button" %>
+                </div>
+                <div class= 'vote-div'>
+                  <%= button_to "  Edit  ", edit_boardgame_review_path(@boardgame, review.id), method: :get, class: "button" %>
+                </div>
+              </td>
         <% end %>
-      </div>
+      <% end %>
+    </div>
   </div>
   <% end %>

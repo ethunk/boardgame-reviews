@@ -1,5 +1,5 @@
 <% @reviews.each do |review| %>
-<div class="container-total-review">
+
   <div id="vote-div">
     <%= link_to image_tag("Upvote_Edited_Final.png"), upvote_review_votes_path(review), class: 'upvote' %>
       <div class= 'vote-total'>
@@ -15,5 +15,5 @@
       <%= button_to "Delete this Review", boardgame_review_path(@boardgame, review.id), method: :delete, class: "button" %>
     <% end %>
   </div>
-</div>
+
 <% end %>
