@@ -52,5 +52,4 @@ gem 'shoulda-matchers', group: [:development, :test], require: false
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'devise'
 gem 'foundation-rails', '~> 5.0'
-gem 'webpacker'
 gem 'faker'

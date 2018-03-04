@@ -178,8 +178,6 @@ GEM
     puma (3.11.2)
     puma (3.11.2-java)
     rack (2.0.4)
-    rack-proxy (0.6.3)
-      rack
     rack-test (0.8.3)
       rack (>= 1.0, < 3)
     rails (5.1.5)
@@ -267,10 +265,6 @@ GEM
       activemodel (>= 5.0)
       bindex (>= 0.4.0)
       railties (>= 5.0)
-    webpacker (3.3.0)
-      activesupport (>= 4.2)
-      rack-proxy (>= 0.6.1)
-      railties (>= 4.2)
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-driver (0.6.5-java)
@@ -312,7 +306,6 @@ DEPENDENCIES
   uglifier (>= 1.3.0)
   valid_attribute
   web-console
-  webpacker
 
 RUBY VERSION
    ruby 2.3.3p222
