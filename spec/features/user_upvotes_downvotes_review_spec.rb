@@ -19,7 +19,6 @@ So that I can inform others of the quality of the review" do
     click_button "Log in"
 
     visit boardgame_path(boardgame)
-    expect(page).to have_content("1")
-    expect(page).to have_content("-1")
+    expect(page).to have_content("0")
   end
 end

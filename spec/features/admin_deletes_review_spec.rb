@@ -27,7 +27,7 @@ So that I can erase my offensive reviews" do
 
     click_link boardgame.name
     expect(page).to have_button('Delete')
-    click_button 'Delete'
+    click_button "delete-review-#{review.id}"
 
     expect(page).to_not have_content('This is a review')
   end

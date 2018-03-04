@@ -18,10 +18,10 @@
             <% if review.user == current_user || current_user.admin? %>
               <td>
                 <div id="vote-div">
-                  <%= button_to "Delete", boardgame_review_path(@boardgame, review.id), method: :delete, class: "button" %>
+                  <%= button_to "Delete", boardgame_review_path(@boardgame, review.id), method: :delete, class: "button", id: "delete-review-#{review.id}" %>
                 </div>
                 <div class= 'vote-div'>
-                  <%= button_to "  Edit  ", edit_boardgame_review_path(@boardgame, review.id), method: :get, class: "button" %>
+                  <%= button_to "  Edit  ", edit_boardgame_review_path(@boardgame, review.id), method: :get, class: "button", id: "edit-review-#{review.id}" %>
                 </div>
               </td>
         <% end %>
