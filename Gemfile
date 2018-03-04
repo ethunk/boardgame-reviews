@@ -8,15 +8,17 @@ end
 
 
 gem 'rails', '~> 5.1.4' # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'pg', '~> 0.18' # Use postgresql as the database for Active Record
-gem 'puma', '~> 3.7' # Use Puma as the app server
-gem 'sass-rails', '~> 5.0' # Use SCSS for stylesheets
+gem 'pg', '>= 0.18' # Use postgresql as the database for Active Record
+gem 'puma', '>= 3.7' # Use Puma as the app server
+gem 'sass-rails', '>= 5.0' # Use SCSS for stylesheets
 gem 'uglifier', '>= 1.3.0' # Use Uglifier as compressor for JavaScript assets
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
+gem 'carrierwave'
 
-gem 'jbuilder', '~> 2.5' # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+
+gem 'jbuilder', '>= 2.5' # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
@@ -32,8 +34,8 @@ end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
-  gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'web-console'
+  gem 'listen'
   gem 'rails_layout'
 end
 
@@ -51,5 +53,5 @@ gem 'shoulda-matchers', group: [:development, :test], require: false
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'devise'
 gem 'foundation-rails', '~> 5.0'
-gem 'webpacker', '~> 3.2'
+gem 'webpacker', '>= 3.2'
 gem 'faker'
