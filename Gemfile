@@ -6,7 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 ruby '2.3.3'
-gem 'rails', '~> 5.1.4' # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'rails', '~> 5.1.5' # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'pg', '>= 0.18' # Use postgresql as the database for Active Record
 gem 'puma', '>= 3.7' # Use Puma as the app server
 gem 'sass-rails', '>= 5.0' # Use SCSS for stylesheets
@@ -52,5 +52,5 @@ gem 'shoulda-matchers', group: [:development, :test], require: false
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'devise'
 gem 'foundation-rails', '~> 5.0'
-gem 'webpacker', '>= 3.2'
+gem 'webpacker'
 gem 'faker'

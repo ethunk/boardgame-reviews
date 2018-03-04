@@ -303,7 +303,7 @@ DEPENDENCIES
   pg (>= 0.18)
   pry-rails
   puma (>= 3.7)
-  rails (~> 5.1.4)
+  rails (~> 5.1.5)
   rails_layout
   rspec-rails
   sass-rails (>= 5.0)
@@ -312,7 +312,10 @@ DEPENDENCIES
   uglifier (>= 1.3.0)
   valid_attribute
   web-console
-  webpacker (>= 3.2)
+  webpacker
+
+RUBY VERSION
+   ruby 2.3.3p222
 
 BUNDLED WITH
    1.16.1
