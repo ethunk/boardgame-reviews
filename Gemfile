@@ -14,7 +14,7 @@ gem 'foundation-rails'
 gem 'carrierwave'
 gem 'jquery-rails'
 gem 'jbuilder', '>= 2.5'
-gem 'webpacker'
+gem 'webpacker', git: 'https://github.com/rails/webpacker.git'
 
 group :development do
   gem 'listen'
