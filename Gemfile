@@ -1,5 +1,7 @@
 source 'https://rubygems.org/'
 
+ruby '2.3.3'
+
 gem 'rails', '5.1.5'
 gem 'railties'
 gem 'pg'
@@ -12,6 +14,7 @@ gem 'foundation-rails'
 gem 'carrierwave'
 gem 'jquery-rails'
 gem 'jbuilder', '>= 2.5'
+gem 'webpacker'
 
 group :development do
   gem 'listen'
