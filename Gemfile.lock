@@ -1,11 +1,4 @@
 GIT
-  remote: https://github.com/lautis/uglifier.git
-  revision: be95a4189c004cc1c628f1aaddd5403be40ce29f
-  specs:
-    uglifier (4.1.6)
-      execjs (>= 0.3.0, < 3)
-
-GIT
   remote: https://github.com/rails/webpacker.git
   revision: 38253711610023a30a66c300cc37f4a5259a95d5
   specs:
@@ -256,6 +249,8 @@ GEM
     tilt (2.0.8)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
+    uglifier (4.1.6)
+      execjs (>= 0.3.0, < 3)
     valid_attribute (2.0.0)
     warden (1.2.7)
       rack (>= 1.0)
@@ -301,7 +296,7 @@ DEPENDENCIES
   spring
   spring-watcher-listen
   tzinfo-data
-  uglifier!
+  uglifier
   valid_attribute
   web-console
   webpacker!
