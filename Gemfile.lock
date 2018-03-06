@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/rails/webpacker.git
-  revision: 76c789d16e0b8ee57ae22e0bd9b28046edcfab44
+  revision: 38253711610023a30a66c300cc37f4a5259a95d5
   specs:
     webpacker (3.3.0)
       activesupport (>= 4.2)
@@ -82,7 +82,7 @@ GEM
     dotenv-rails (2.2.1)
       dotenv (= 2.2.1)
       railties (>= 3.2, < 5.2)
-    erubi (1.7.0)
+    erubi (1.7.1)
     excon (0.60.0)
     execjs (2.7.0)
     factory_bot (4.8.2)
@@ -169,7 +169,7 @@ GEM
     public_suffix (3.0.2)
     puma (3.11.2)
     rack (2.0.4)
-    rack-proxy (0.6.3)
+    rack-proxy (0.6.4)
       rack
     rack-test (0.8.3)
       rack (>= 1.0, < 3)
