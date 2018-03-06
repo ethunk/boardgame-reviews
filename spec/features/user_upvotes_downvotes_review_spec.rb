@@ -19,6 +19,20 @@ So that I can inform others of the quality of the review" do
     click_button "Log in"
 
     visit boardgame_path(boardgame)
+    expect(page.find_by_id("downvote-review-#{review.id}")).to be_truthy
+    expect(page.find_by_id("upvote-review-#{review.id}")).to be_truthy
     expect(page).to have_content("0")
   end
+
+  scenario 'unathenticated user cannot downvote or upvote' do
+    user = FactoryBot.create(:user)
+    boardgame = FactoryBot.create(:boardgame)
+    review = FactoryBot.create(:review, boardgame: boardgame)
+
+    visit boardgame_path(boardgame)
+    expect{ page.find_by_id("downvote-review-#{review.id}")}.to raise_error
+
+
+  end
+
 end
