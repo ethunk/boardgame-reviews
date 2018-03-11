@@ -1,15 +1,19 @@
 
-    <%= form_for @boardgame do |f| %>
+<%= form_for @boardgame do |f| %>
 
-      <%= f.label :name, "Name" %>
-      <%= f.text_field :name %>
+  <%= f.label :name, "Name" %>
+  <%= f.text_field :name %>
 
-      <%= f.label :publisher, "Publisher" %>
-      <%= f.text_field :publisher %>
+  <%= f.label :publisher, "Publisher" %>
+  <%= f.text_field :publisher %>
 
-      <%= f.label :description, "Description" %>
-      <%= f.text_field :description %>
+  <%= f.label :description, "Description" %>
+  <%= f.text_field :description %>
 
-      <%= f.submit "Submit" %>
+  <%= form_for @categorization, url: boardgames_path do |f| %>
+    <%= f.label :categorization, "Categories" %>
+    <%= f.collection_check_boxes(:category_id, Category.all, :id, :name)%>
 
-    <% end %>
+    <%= f.submit "Submit", class: 'button', method: :post, url: boardgames_path  %>
+  <% end %>
+<% end %>

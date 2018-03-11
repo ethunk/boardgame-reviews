@@ -7,6 +7,8 @@ class BoardgamesController < ApplicationController
 
   def new
     @boardgame = Boardgame.new
+    @categories = Category::GENRES
+    @categorization = Categorization.new
   end
 
   def show
@@ -20,12 +22,17 @@ class BoardgamesController < ApplicationController
   def create
     @boardgame = Boardgame.new(boardgame_params)
     @boardgame.user = current_user
-
     if @boardgame.save
+      categorization_params.require(:category_id).each do |category_id|
+        if (category_id.to_i <= Category.all.count) && (category_id.to_i >0)
+          Categorization.create(boardgame_id: @boardgame.id, category_id: category_id)
+        end
+      end
       flash[:notice] = "Boardgame Created!"
       redirect_to boardgames_path
     else
       flash.now[:alert] = @boardgame.errors.full_messages.join("\n")
+      @categorization = Categorization.new
       render :new
     end
   end
@@ -36,7 +43,7 @@ class BoardgamesController < ApplicationController
 
   def update
     @boardgame = Boardgame.find(params[:id])
-
+    binding.pry
     if @boardgame.update(boardgame_params)
       flash[:notice] = 'Boardgame Edited'
       redirect_to boardgame_path(@boardgame)
@@ -59,5 +66,9 @@ private
 
 def boardgame_params
   params.require(:boardgame).permit(:name, :description,
-    :publisher, :user_id)
+    :publisher)
+end
+
+def categorization_params
+  params.require(:categorization).permit(category_id: [])
 end

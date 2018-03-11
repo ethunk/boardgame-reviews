@@ -3,8 +3,9 @@ class Boardgame < ApplicationRecord
   validates :description, presence: true
   validates :publisher, presence: true
   has_many :reviews, dependent: :destroy
-  has_many :categorizations
+  has_many :categorizations, dependent: :destroy
   has_many :categories, through: :categorizations
+  accepts_nested_attributes_for :categorizations
   belongs_to :user
 
 
