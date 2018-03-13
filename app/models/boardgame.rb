@@ -8,6 +8,7 @@ class Boardgame < ApplicationRecord
   accepts_nested_attributes_for :categorizations
   belongs_to :user
 
+  mount_uploader :boardgame_photo, BoardgamePhotoUploader
 
   def avg_rating
     all_ratings = []
