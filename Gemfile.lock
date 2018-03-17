@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/rails/webpacker.git
-  revision: 811796a1ba54ed98226895d5b230e9ea92d40e92
+  revision: 93386ed7e85928b38b46f3f3dd259ae3a9e59090
   specs:
     webpacker (3.3.1)
       activesupport (>= 4.2)
@@ -67,10 +67,11 @@ GEM
     coderay (1.1.2)
     concurrent-ruby (1.0.5)
     crass (1.0.3)
-    devise (4.4.1)
+    database_cleaner (1.6.2)
+    devise (4.4.2)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
-      railties (>= 4.1.0, < 5.2)
+      railties (>= 4.1.0, < 6.0)
       responders
       warden (~> 1.2.3)
     diff-lcs (1.3)
@@ -79,7 +80,7 @@ GEM
       dotenv (= 2.2.1)
       railties (>= 3.2, < 5.2)
     erubi (1.7.1)
-    excon (0.60.0)
+    excon (0.61.0)
     execjs (2.7.0)
     factory_bot (4.8.2)
       activesupport (>= 3.0.0)
@@ -152,7 +153,7 @@ GEM
     mini_portile2 (2.3.0)
     minitest (5.11.3)
     multi_json (1.13.1)
-    nio4r (2.2.0)
+    nio4r (2.3.0)
     nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
     orm_adapter (0.5.0)
@@ -272,6 +273,7 @@ PLATFORMS
 DEPENDENCIES
   capybara
   carrierwave
+  database_cleaner
   devise
   dotenv-rails
   factory_bot_rails

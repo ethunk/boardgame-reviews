@@ -1,5 +1,5 @@
 require 'rails_helper'
-
+require 'carrierwave/test/matchers'
 # Acceptance Criteria
 # [x] There is a new page
 # [x] I can submit a form to add a boardgame
@@ -25,7 +25,6 @@ So that others can review it" do
     fill_in :boardgame_name, with: "Monopoly"
     fill_in :boardgame_description, with: "Play to make unfair market conditions"
     fill_in :boardgame_publisher, with: "Warner Bros."
-
     click_button "Submit"
 
     expect(page).to have_content("Monopoly")

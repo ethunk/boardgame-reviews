@@ -24,7 +24,7 @@ class BoardgamesController < ApplicationController
     @boardgame = Boardgame.new(boardgame_params)
     @boardgame.user = current_user
     if @boardgame.save
-      categorization_params.require(:category_id).each do |category_id|
+      categorization_params.require(:categorizations).each do |category_id|
         if (category_id.to_i <= Category.all.count) && (category_id.to_i >0)
           Categorization.create(boardgame_id: @boardgame.id, category_id: category_id)
         end
@@ -49,7 +49,6 @@ class BoardgamesController < ApplicationController
 
   def update
     @boardgame = Boardgame.find(params[:id])
-    binding.pry
     if @boardgame.update(boardgame_params)
       flash[:notice] = 'Boardgame Edited'
       redirect_to boardgame_path(@boardgame)
@@ -76,5 +75,5 @@ def boardgame_params
 end
 
 def categorization_params
-  params.require(:categorization).permit(category_id: [])
+  params.require(:boardgame).permit(categorizations: [])
 end

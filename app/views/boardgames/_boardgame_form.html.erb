@@ -13,10 +13,9 @@
   <%= f.label :description, "Description" %>
   <%= f.text_field :description %>
 
-  <%= form_for @categorization, url: boardgames_path do |f| %>
     <table class='container'>
       <th colspan="2"><%= f.label "Categories" %></th>
-      <%= f.collection_check_boxes(:category_id, Category.all, :id, :name) do |cb| %>
+      <%= f.collection_check_boxes(:categorizations, Category.all, :id, :name) do |cb| %>
       <tr>
         <td class='category_cell'><%= cb.label %> </td>
         <% if @category_names.include?(cb.text) %>
@@ -28,5 +27,4 @@
       <% end %>
   </table>
     <%= f.submit "Submit", class: 'button', method: :post, url: boardgames_path  %>
-  <% end %>
 <% end %>

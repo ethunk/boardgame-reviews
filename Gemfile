@@ -37,6 +37,7 @@ group :development, :test do
   gem 'valid_attribute'
   gem 'fog-aws'
   gem 'dotenv-rails'
+  gem 'database_cleaner'
 end
 
 group :production do
