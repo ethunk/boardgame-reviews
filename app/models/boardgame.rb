@@ -9,6 +9,7 @@ class Boardgame < ApplicationRecord
   belongs_to :user
 
   mount_uploader :boardgame_photo, BoardgamePhotoUploader
+  validate :image_size_validation
 
   def avg_rating
     all_ratings = []
@@ -23,5 +24,11 @@ class Boardgame < ApplicationRecord
   end
 
   paginates_per 5
+
+
+ private
+   def image_size_validation
+     errors[:image] << "should be less than 500KB" if boardgame_photo.size > 0.5.megabytes
+   end
 
 end

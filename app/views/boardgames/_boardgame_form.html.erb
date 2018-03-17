@@ -1,8 +1,8 @@
 
 <div class = 'container'>
 <%= form_for @boardgame do |f| %>
-  <%= f.label :profile_photo, "Upload a Photo" %>
-  <%= f.file_field :profile_photo %>
+  <%= f.label :boardgame_photo, "Upload a Photo of the Board Game" %>
+  <%= f.file_field :boardgame_photo %>
 
   <%= f.label :name, "Name" %>
   <%= f.text_field :name %>
@@ -19,7 +19,11 @@
       <%= f.collection_check_boxes(:category_id, Category.all, :id, :name) do |cb| %>
       <tr>
         <td class='category_cell'><%= cb.label %> </td>
-        <td class='category_checkbox'><%= cb.check_box %> </td>
+        <% if @category_names.include?(cb.text) %>
+          <td><%= cb.check_box(class: 'category_checkbox', checked: true) %>
+        <% else %>
+          <td><%= cb.check_box(class: 'category_checkbox', checked: false) %>
+        <% end %>
       </tr>
       <% end %>
   </table>

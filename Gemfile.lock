@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/rails/webpacker.git
-  revision: 38253711610023a30a66c300cc37f4a5259a95d5
+  revision: 811796a1ba54ed98226895d5b230e9ea92d40e92
   specs:
-    webpacker (3.3.0)
+    webpacker (3.3.1)
       activesupport (>= 4.2)
       rack-proxy (>= 0.6.1)
       railties (>= 4.2)
@@ -147,6 +147,7 @@ GEM
     mime-types (3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
+    mini_magick (4.8.0)
     mini_mime (1.0.0)
     mini_portile2 (2.3.0)
     minitest (5.11.3)
@@ -162,7 +163,7 @@ GEM
     pry-rails (0.3.6)
       pry (>= 0.10.4)
     public_suffix (3.0.2)
-    puma (3.11.2)
+    puma (3.11.3)
     rack (2.0.4)
     rack-proxy (0.6.4)
       rack
@@ -249,7 +250,7 @@ GEM
     tilt (2.0.8)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
-    uglifier (4.1.6)
+    uglifier (4.1.8)
       execjs (>= 0.3.0, < 3)
     valid_attribute (2.0.0)
     warden (1.2.7)
@@ -276,12 +277,13 @@ DEPENDENCIES
   factory_bot_rails
   faker
   fog-aws
-  foundation-rails
+  foundation-rails (~> 5.5.3.2)
   jbuilder (>= 2.5)
   jquery-rails
   kaminari
   launchy
   listen
+  mini_magick
   pg
   pry-rails
   puma (>= 3.7)

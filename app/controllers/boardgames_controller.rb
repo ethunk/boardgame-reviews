@@ -9,6 +9,7 @@ class BoardgamesController < ApplicationController
     @boardgame = Boardgame.new
     @categories = Category::GENRES
     @categorization = Categorization.new
+    @category_names = []
   end
 
   def show
@@ -39,6 +40,11 @@ class BoardgamesController < ApplicationController
 
   def edit
     @boardgame = Boardgame.find(params[:id])
+    @categorization = Categorization.new
+    @category_names = []
+    @boardgame.categories.each do |category|
+      @category_names << category.name
+    end
   end
 
   def update
@@ -66,7 +72,7 @@ private
 
 def boardgame_params
   params.require(:boardgame).permit(:name, :description,
-    :publisher)
+    :publisher, :boardgame_photo)
 end
 
 def categorization_params
