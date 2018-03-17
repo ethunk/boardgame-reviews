@@ -23,7 +23,7 @@ class BoardgamePhotoUploader < CarrierWave::Uploader::Base
   end
 
   # Process files as they are uploaded:
-  process scale: [200, 300]
+  process resize_to_fit: [250, 250]
   #
   # def scale(width, height)
   #   # do something
@@ -31,7 +31,7 @@ class BoardgamePhotoUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   version :thumb do
-    process :resize_to_fill => [60, 60]
+    process :resize_to_fill => [150, 150]
     def default_url
       "fallback/thumb_default.png"
     end
