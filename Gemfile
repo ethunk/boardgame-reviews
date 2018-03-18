@@ -36,7 +36,6 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'shoulda'
   gem 'valid_attribute'
-  gem 'fog-aws'
   gem 'dotenv-rails'
   gem 'database_cleaner'
 end
