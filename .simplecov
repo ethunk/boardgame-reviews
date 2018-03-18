@@ -14,5 +14,5 @@
    add_filter 'app/controllers/users/unlocks_controller.rb'
    add_filter 'app/controllers/users/confirmations_controller.rb'
    add_filter 'app/controllers/users/passwords_controller.rb'
-   add_filter 'app/uploaders/boardgame_photo_uploader.rb
+   add_filter 'app/uploaders/boardgame_photo_uploader.rb'
  end
