@@ -17,6 +17,7 @@ gem 'jquery-rails'
 gem 'jbuilder', '>= 2.5'
 gem 'webpacker', git: 'https://github.com/rails/webpacker.git'
 gem 'mini_magick'
+gem 'fog-aws'
 
 group :development do
   gem 'listen'
