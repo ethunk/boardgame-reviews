@@ -37,3 +37,7 @@ exclude_paths:
 - db/
 - vendor/
 - app/assets/
+- public/
+- node_modules/
+- lib/
+- log/

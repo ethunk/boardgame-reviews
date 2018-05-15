@@ -2,6 +2,7 @@ class Boardgame < ApplicationRecord
   validates :name, presence: true
   validates :description, presence: true
   validates :publisher, presence: true
+
   has_many :reviews, dependent: :destroy
   has_many :categorizations, dependent: :destroy
   has_many :categories, through: :categorizations

@@ -12,7 +12,7 @@ feature "CarrierWave uploader stores associated photos with model" do
 
   before do
     BoardgamePhotoUploader.enable_processing = true
-    File.open('public/uploads/boardgame/boardgame_photo/32/thumb_monopoly_board_2013_by_jdwinkerman-d7itj2q.jpg') { |f| uploader.store!(f) }
+    File.open('app/assets/images/fallback/default.png') { |f| uploader.store!(f) }
   end
 
   after do
@@ -27,7 +27,7 @@ feature "CarrierWave uploader stores associated photos with model" do
 
 
   it "has the correct format" do
-    expect(uploader).to be_format('jpeg')
+    expect(uploader).to be_format('png')
   end
 
 end
